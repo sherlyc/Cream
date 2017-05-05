@@ -3,8 +3,6 @@ var hbs = require('express-handlebars')
 var bodyParser = require('body-parser')
 const routes = require('./routes')
 
-//Create a custom function helper to check the status.
-
 var app = express()
 
 
@@ -12,7 +10,7 @@ var app = express()
 app.engine('hbs', hbs({
   defaultLayout: 'main',
   extname: 'hbs',
-  helpers: {
+  helpers: { //handlebar javascript helpers declared here
         select: function ( selected, options) {
             return options.fn(this).replace(
             new RegExp(' value=\"' + selected + '\"'),
