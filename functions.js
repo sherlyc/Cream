@@ -34,10 +34,10 @@ function editTask(editID, currData, req){
    }
 
    for(var i=0; i< currData.length; i++){
-		if(currData[i].id == editID){
-            currData[i] = updatedTask
-		}
-    }
+       if(currData[i].id == editID){
+           currData[i] = updatedTask
+	    }
+   }
    updateJSON(currData);
 }
 
