@@ -1,9 +1,8 @@
 const data = require('./data.json')
 const fs = require('fs')
 
-function addTask(newId, newTask) {
+function addTask(newTask) {
    var newObj = {
-      "id": newId,
       "task": newTask,
       "priority": "Medium",
       "status": "New"
@@ -14,30 +13,18 @@ function addTask(newId, newTask) {
 }
 
 function deleteTask(deleteId) {
-    var itemToDelete = data.find(function(item){
-      return item.id == deleteId
-    })
-    var indexToDelete = data.indexOf(itemToDelete)
-    data.splice((indexToDelete),1)
+    data.splice((deleteId),1)
     updateJSON(data)
 }
 
 function editTask(editID, currData, req){
-    var itemToEdit = currData.find(function(item){
-      return item.id == editID
-    })
     var updatedTask = {
-      "id": editID,
       "task": req.task,
       "priority": req.priority,
       "status": req.status
    }
 
-   for(var i=0; i< currData.length; i++){
-       if(currData[i].id == editID){
-           currData[i] = updatedTask
-	    }
-   }
+   currData[editID] = updatedTask
    updateJSON(currData);
 }
 

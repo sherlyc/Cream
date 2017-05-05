@@ -9,9 +9,9 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  var newId = data.length + 1
+//  var newId = data.length + 1
   var newTask = req.body.newTask
-  funcs.addTask(newId, newTask)
+  funcs.addTask(newTask)
   res.redirect('/')
 })
 
@@ -23,10 +23,8 @@ router.get('/delete/:id', (req, res) => {
 
 router.get('/edit/:id', (req, res) => {
   var editId = req.params.id
-  var itemToEdit = data.find(function(item){
-    return item.id == editId
-  })
-  res.render('edit', itemToEdit)
+  var itemToEdit = data[editId]
+  res.render('edit', { item: itemToEdit, query:editId})
 })
 
 router.post('/edit/:id', (req, res) => {

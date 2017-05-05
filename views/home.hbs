@@ -11,11 +11,11 @@
     </tr>
     {{#each data}}
     <tr>
-      <td><a href="/edit/{{id}}" title="click to edit">{{task}}</a></td>
+      <td><a href="/edit/{{@index}}" title="click to edit">{{task}}</a></td>
       <td class="{{priority}} priority">{{priority}}</td>
       <td class="{{status}} status">{{status}}</td>
       <td>
-        <button  onclick="location.href='/delete/{{id}}';">Delete</button>
+        <button  onclick="location.href='/delete/{{@index}}';">Delete</button>
       </td>
    </tr>
     {{/each}}
