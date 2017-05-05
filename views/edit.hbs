@@ -1,0 +1,22 @@
+<div class="container">
+  <h3>Currently editing:</h3>
+  <h5>{{task}}, Priority: {{priority}}, Status: {{status}}</h5>
+  <form class="" action="/edit/{{id}}" method="post">
+    <input type="text" name="task" value="{{task}}">
+    <select name="priority">
+      {{#select priority}}
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      {{/select}}
+    </select>
+    <select name="status">
+    {{#select status}}
+        <option value="Done">Done</option>
+        <option value="New">New</option>
+    {{/select}}
+    </select>
+    <input type="submit" name="edit" value="Submit">
+  </form>
+  <p><a href='/'>Home</a></p>
+</div>
