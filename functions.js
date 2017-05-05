@@ -14,11 +14,9 @@ function addTask(newId, newTask) {
 }
 
 function deleteTask(deleteId) {
-
     var itemToDelete = data.find(function(item){
       return item.id == deleteId
     })
-
     var indexToDelete = data.indexOf(itemToDelete)
     data.splice((indexToDelete),1)
     updateJSON(data)
@@ -26,10 +24,8 @@ function deleteTask(deleteId) {
 
 function editTask(editID, currData, req){
     var itemToEdit = currData.find(function(item){
-
       return item.id == editID
     })
-
     var updatedTask = {
       "id": editID,
       "task": req.task,
@@ -42,7 +38,6 @@ function editTask(editID, currData, req){
             currData[i] = updatedTask
 		}
     }
-
    updateJSON(currData);
 }
 
@@ -55,7 +50,6 @@ function updateJSON(newData){
     })
 }
 
-// addTask({"id":4, "task": "Wash clothes", "priority":"Low", "status": "New" })
 module.exports = {
   addTask,
   deleteTask,
